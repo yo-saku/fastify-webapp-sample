@@ -19,3 +19,11 @@ services:
       - "5432:5432"
     volumes:
       - ../db/init:/docker-entrypoint-initdb.d
+
+  allure:
+    image: frankescobar/allure-docker-service
+    ports:
+      - "5050:5050"
+    volumes:
+      - ../e2e/allure-results:/app/allure-results
+      - ../e2e/output:/app/allure-reports
