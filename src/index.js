@@ -24,15 +24,14 @@ server.register(view, {
 
 server.register(formbody)
 
-const connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}`;
-const useSSL = process.env.PGSSL === 'true'; //SSL指定がある場合は、パラメータを追加
+if(process.env.PGSSL === 'true'){
+  //SSL指定がある場合は、パラメータを追加
+  connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}?ssl=true`;
+}else{
+  connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}`;
+}
 server.register(postgres, {
-  connectionString,
-  ...(useSSL && {
-    ssl: {
-      rejectUnauthorized: false
-    }
-  })
+  connectionString
 })
 
 const passport = await authConfig(server)
