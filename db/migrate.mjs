@@ -8,6 +8,7 @@ dotenv.config()
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function main() {
+  const useSSL = process.env.PGSSL === 'true'; //SSL指定がある場合は、パラメータを追加
   // Create a client of your choice
   const client = new pg.Client({
     host: process.env.PGHOST,
@@ -15,6 +16,11 @@ async function main() {
     database: process.env.PGDATABASE,
     user: process.env.PGUSER,
     password: process.env.PGPASSWORD,
+    ...(useSSL && {
+      ssl: {
+        rejectUnauthorized: false
+      }
+    })
   });
 
   try {
