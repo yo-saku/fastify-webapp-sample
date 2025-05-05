@@ -24,6 +24,7 @@ server.register(view, {
 
 server.register(formbody)
 
+let connectionString;
 if(process.env.PGSSL === 'true'){
   //SSL指定がある場合は、パラメータを追加
   connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}?ssl=true`;
