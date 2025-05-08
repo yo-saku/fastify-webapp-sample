@@ -24,16 +24,25 @@ server.register(view, {
 
 server.register(formbody)
 
-let connectionString;
-if(process.env.PGSSL === 'true'){
-  //SSL指定がある場合は、パラメータを追加
-  connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}?ssl=true`;
-}else{
-  connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}`;
-}
+const connectionString = `postgres://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}`;
+const useSSL = process.env.PGSSL === 'true'; //SSL指定がある場合は、パラメータを追加
 server.register(postgres, {
-  connectionString
+  connectionString,
+  ...(useSSL && {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  })
 })
+let aaa = {
+  connectionString,
+  ...(useSSL && {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  })
+};
+console.log(aaa);
 
 const passport = await authConfig(server)
 
@@ -48,6 +57,10 @@ server.register(publicRoutes, { passport })
 server.get('/', (request, reply) => {
   reply.redirect(302, '/items')
 })
+
+server.get('/health', async (request, reply) => {
+  return { status: "ok" };
+});
 
 server.listen({ host: '0.0.0.0', port: process.env.PORT || 8080 }, (err, address) => {
   if (err) {
