@@ -9,12 +9,18 @@ import pg from 'pg';
 export default async function authConfig(server) {
   const passport = new Authenticator();
   server.register(cookie);
+  const useSSL = process.env.PGSSL === 'true'; //SSL指定がある場合は、パラメータを追加
   const pgPool = new pg.Pool({
     host: process.env.PGHOST,
     port: process.env.PGPORT,
     user: process.env.PGUSER,
     password: process.env.PGPASSWORD,
     max: 20,
+    ...(useSSL && {
+      ssl: {
+        rejectUnauthorized: false
+      }
+    })
   });
   const pgSession = new connectPgSimple(session)
   // allow insecure cookie only during development
