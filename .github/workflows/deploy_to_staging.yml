@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Deploy
-      - uses: yo-saku/fastify-webapp-sample
+        uses: yo-saku/fastify-webapp-sample
         with:
           api-key: ${{ secrets.RENDER_API_KEY }}
           service-id: ${{ secrets.RENDER_SERVICE_ID }}
