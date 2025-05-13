@@ -11,13 +11,4 @@ jobs:
     steps:
       - name: Trigger Render Deploy
         run: |
-          curl --request POST \
-            --url https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
-            --header 'accept: application/json' \
-            --header 'authorization: Bearer ${{ secrets.RENDER_API_KEY }}' \
-            --header 'content-type: application/json' \
-            --data '
-              {
-                "clearCache": "do_not_clear"
-              }
-            '
+          curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
