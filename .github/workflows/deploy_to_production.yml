@@ -1,11 +1,12 @@
 name: Deploy to Production
 
 on:
-  workflows:
-    - "Run E2E test"
-  types:
-    - completed
-    
+  workflow_run:
+    workflows:
+      - "Deploy to Staging"
+    types:
+      - completed
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
