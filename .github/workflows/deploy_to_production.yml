@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   workflow_run:
     workflows:
-      - "Deploy to Staging"
+      - "Run E2E test"
     types:
       - completed
 
