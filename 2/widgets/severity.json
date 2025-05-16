@@ -1,0 +1,1 @@
+[{"uid":"5a4c77bd028975d9","name":" ユーザーが存在しない URL にアクセスすると、エラーメッセージと商品一覧へのリンクが表示される ","time":{"start":1747439853127,"stop":1747439859614,"duration":6487},"status":"failed","severity":"normal"},{"uid":"c2ac0ebc15a5f500","name":"Web サイトを開きログインする ","time":{"start":1747439859620,"stop":1747439860262,"duration":642},"status":"failed","severity":"normal"}]

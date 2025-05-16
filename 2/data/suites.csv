@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Fri May 16 23:57:39 GMT 2025","Fri May 16 23:57:40 GMT 2025","642","","スモークテスト","","","","Web サイトを開きログインする ",""
+"failed","Fri May 16 23:57:33 GMT 2025","Fri May 16 23:57:39 GMT 2025","6487",""," 一般的なエラーのテスト ","","",""," ユーザーが存在しない URL にアクセスすると、エラーメッセージと商品一覧へのリンクが表示される ",""
