@@ -53,6 +53,10 @@ server.get('/health', async (request, reply) => {
   return { status: "ok" };
 });
 
+server.setNotFoundHandler(function (request, reply) {
+reply.view('src/views/404.ejs');
+});
+
 server.listen({ host: '0.0.0.0', port: process.env.PORT || 8080 }, (err, address) => {
   if (err) {
     console.error(err);
