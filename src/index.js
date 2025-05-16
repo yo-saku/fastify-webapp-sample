@@ -49,10 +49,6 @@ server.get('/', (request, reply) => {
   reply.redirect(302, '/items')
 })
 
-server.get('/health', async (request, reply) => {
-  return { status: "ok" };
-});
-
 server.setNotFoundHandler(function (request, reply) {
 reply.view('src/views/404.ejs');
 });
