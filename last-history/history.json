@@ -1,0 +1,1 @@
+{"e8db7a252f1579e431bad08aea622f5b":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"4af4498e8ecdce74","reportUrl":"https://yo-saku.github.io/fastify-webapp-sample/1//#testresult/4af4498e8ecdce74","status":"passed","time":{"start":1747436304579,"stop":1747436314608,"duration":10029}}]}}
