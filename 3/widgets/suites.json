@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"5e4bf92dfc1d155667e37f8f64383f79","name":" 一般的なエラーのテスト ","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}},{"uid":"b28d7461c59916d577049b7ac9e7bce6","name":"スモークテスト","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
