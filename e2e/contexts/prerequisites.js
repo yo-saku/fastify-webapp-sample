@@ -6,7 +6,8 @@ module.exports = {
      */
     haveItem(name) {
         const I = actor({});
-        if (!name) name = `牛ハラミ弁当 - テスト -${utils.now.format("YYYYMMDDHHmmss")}`;
+        if (!name)
+            name = `牛ハラミ弁当 - テスト -${utils.now.format("YYYYMMDDHHmmss")}-${Math.floor(Math.random() * 100000)}`;
         I.amOnPage('/items/add')
         I.seeInTitle('商品追加')
         I.fillField("商品名", name);

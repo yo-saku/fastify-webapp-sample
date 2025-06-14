@@ -1,6 +1,7 @@
 {
     "contexts": {
-        "Feature": "SuiteOf"
+        "Feature": "SuiteOf",
+        "locale": "ja-JP"
     }
 }
     
