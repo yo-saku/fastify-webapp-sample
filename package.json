@@ -10,7 +10,8 @@
     "dev": "nodemon src/index.js",
     "build": "npm run db:migrate",
     "start": "node src/index.js",
-    "test:e2e": "npx start-server-and-test dev http://localhost:8080 'cd e2e && npm run test'"
+    "test:e2e": "npx start-server-and-test dev http://localhost:8080 'cd e2e && npm run test'",
+    "test:frontend": "jest"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,8 @@
     "@types/node": "^18.11.18",
     "esbuild": "^0.16.12",
     "husky": "^8.0.3",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0",
     "nodemon": "^2.0.20",
     "postgrator-cli": "^6.0.0",
     "start-server-and-test": "^2.0.11",
